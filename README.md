@@ -3,4 +3,4 @@ A silly Plattformer game for windows console, in C#. Still in progress but playa
 Some fatal bugs and no ending. No enemies! No meaning...
 Use the arrowkeys to move and space to jump.
 The level is stored in a seperate text file.
-![alt tag](Plattformer_ConsoleGame/ASCII_platformer.png)
+![alt tag](~/Plattformer_ConsoleGame/ASCII_platformer.png)
