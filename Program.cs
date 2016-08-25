@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,26 +10,24 @@ namespace ASCII_game_1
 {
     class Program
     {
-        static int T = 0;
+        static int TimeCount = 0;
         static Player player = new Player();
         static bool jump = false;
-        //static bool jumpReady = true;
         static Timer jumpTimer = new Timer(150);
         static char[,] levelArray = new char[50, 50];
-
-        public static int TT { get; private set; }
+        public static int TestCountInt { get; private set; }
 
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
             var path = "levels.txt";
-            var val = "start";
+            var selValue = "start";
             while (true)
             {
-                switch (val)
+                switch (selValue)
                 {
                     case "start":
-                        val = startScreen();
+                        selValue = startScreen();
                         break;
                     case "play":
                         Console.Clear();
@@ -120,15 +118,15 @@ namespace ASCII_game_1
 
         private static void UpDownRoutine(object sender, ElapsedEventArgs e)  // kind of interupt routine
         {
-            T++;
-            if (T > 100) { moveEnemy(); TT++; T = 0; }
+            TimeCount++;
+            if (TimeCount > 3) { displayCounter(); TestCountInt++; TimeCount = 0; }
             if (player.falling) { fallingDown();}
             if (jump && !player.falling) { jumpingUp(player.jumpDir); }  
         }
 
-        private static void moveEnemy()
+        private static void displayCounter()
         {
-            debug(TT.ToString());
+            debug(TestCountInt.ToString());
         }
 
         private static void jumpingUp(Dir d)
@@ -351,5 +349,3 @@ namespace ASCII_game_1
     }
 
 }
-
-
